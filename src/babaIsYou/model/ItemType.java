@@ -1,0 +1,31 @@
+package babaIsYou.model;
+
+public enum ItemType {
+	Baba,
+	BabaWord,
+	Flag,
+	FlagWord,
+	Wall,
+	WallWord,
+	Water,
+	WaterWord,
+	Skull,
+	SkullWord,
+	Lava,
+	LavaWord,
+	Rock,
+	RockWord,
+	IsWord,
+	YouWord,
+	WinWord,
+	StopWord,
+	PushWord,
+	MeltWord,
+	HotWord,
+	DefeatWord,
+	SinkWord,
+	JumpWord,
+	SpringWord,
+	Spring,
+	None
+}

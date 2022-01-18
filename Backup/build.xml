@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="BabaIsYou">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="15"/>
+    <property name="source" value="15"/>
+    <path id="BabaIsYou.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/zen5.jar"/>
+    </path>
+    <path id="run.CommandLineParser.classpath">
+        <path refid="BabaIsYou.classpath"/>
+        <pathelement location="lib/zen5.jar"/>
+    </path>
+    <path id="run.Main (6).classpath">
+        <path refid="BabaIsYou.classpath"/>
+        <pathelement location="lib/zen5.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="Images">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="GameMaps">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    
+    
+    
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project,jar" name="build"/>
+    
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="Images"/>
+            <src path="GameMaps"/>
+            <src path="src"/>
+            <classpath refid="BabaIsYou.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="CommandLineParser">
+        <java classname="babaIsYou.model.CommandLineParser" failonerror="true" fork="yes">
+            <classpath refid="run.CommandLineParser.classpath"/>
+        </java>
+    </target>
+    <target name="Main (6)">
+        <java classname="babaIsYou.controller.Main" failonerror="true" fork="yes">
+            <classpath refid="run.Main (6).classpath"/>
+        </java>
+    </target>
+
+    <target name="javadoc">
+   <javadoc packagenames="babaIsYou.*" sourcepath="/src"
+      destdir="doc" version="true" windowtitle="Baba Is You">
+      <doctitle><![CDATA[= Baba Is You =]]></doctitle>
+      <group title="controller" packages="babaIsYou.controller.*"/>
+   </javadoc>
+   <echo message="java doc has been generated!" />
+</target>
+
+<property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="${dir.buildfile}/.."/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <target name="jar">
+        <jar destfile="${dir.jarfile}/BabaIsYou.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="babaIsYou.controller.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.jarfile}/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/lib/zen5.jar"/>
+        </jar>
+    </target>
+    
+</project>

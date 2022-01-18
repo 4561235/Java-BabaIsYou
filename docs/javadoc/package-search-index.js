@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"babaIsYou.controller"},{"l":"babaIsYou.model"},{"l":"babaIsYou.view"}];updateSearchResults();

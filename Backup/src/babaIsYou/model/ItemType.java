@@ -1,0 +1,31 @@
+package babaIsYou.model;
+
+public enum ItemType {
+	Baba,
+	WDBaba,
+	Flag,
+	WDFlag,
+	Wall,
+	WDWall,
+	Water,
+	WDWater,
+	Skull,
+	WDSkull,
+	Lava,
+	WDLava,
+	Rock,
+	WDRock,
+	WDIs,
+	WDYou,
+	WDWin,
+	WDStop,
+	WDPush,
+	WDMelt,
+	WDHot,
+	WDDefeat,
+	WDSink,
+	WDJump,
+	WDSpring,
+	Spring,
+	None
+}
